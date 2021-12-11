@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/nav_dashboard"
+        android:title="Dashboard"
+        android:icon="@drawable/ic_dashboard"
+        app:cnb_backgroundColor="@color/Primary"/>
+    <item
+        android:id="@+id/nav_expense"
+        android:title="Expense"
+        android:icon="@drawable/ic_expense"
+        app:cnb_backgroundColor="@color/Primary"/>
+    <item
+        android:id="@+id/nav_balance"
+        android:title="Balance"
+        android:icon="@drawable/ic_balance"
+        app:cnb_backgroundColor="@color/Primary"/>
+    <item
+        android:id="@+id/nav_profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_person"
+        app:cnb_backgroundColor="@color/Primary"/>
+    <item
+        android:id="@+id/nav_about"
+        android:title="About"
+        android:icon="@drawable/ic_about"
+        app:cnb_backgroundColor="@color/Primary"/>
+
+</menu>

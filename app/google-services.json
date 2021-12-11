@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "375638235520",
+    "project_id": "expense-manager-de3bf",
+    "storage_bucket": "expense-manager-de3bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375638235520:android:ec62e14b2b7b11b66e0965",
+        "android_client_info": {
+          "package_name": "com.predatorx.expensemanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375638235520-i1ae0knrhnu86ke3t63p9hbt5rb71c9d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.predatorx.expensemanager",
+            "certificate_hash": "4df78944d2b3b315155a06c22bdfa6dfcaff885d"
+          }
+        },
+        {
+          "client_id": "375638235520-o8v21108bp9296r4b39llkgb6tuvl21k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUwkfBeWSIkhqtuAFjirgjyexH_jeQG4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375638235520-o8v21108bp9296r4b39llkgb6tuvl21k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
