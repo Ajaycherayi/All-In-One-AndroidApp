@@ -1,4 +1,4 @@
-package com.predatorx.expensemanager.user;
+package com.predatorx.allinone.user;
 
 import androidx.fragment.app.Fragment;
 

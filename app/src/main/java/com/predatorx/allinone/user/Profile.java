@@ -1,4 +1,4 @@
-package com.predatorx.expensemanager;
+package com.predatorx.allinone.user;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class About extends Fragment {
+import com.predatorx.allinone.R;
+
+public class Profile extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.about, container, false);
+        return inflater.inflate(R.layout.profile, container, false);
     }
 }

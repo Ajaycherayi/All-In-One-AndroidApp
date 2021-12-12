@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.predatorx.expensemanager">
+    package="com.predatorx.allinone">
 
     <application
         android:allowBackup="true"
@@ -10,16 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExpenseManager">
         <activity
-            android:name=".user.Navbar"
+            android:name="com.predatorx.allinone.user.Otp_Verification"
             android:exported="false" />
         <activity
-            android:name=".user.SignUp"
+            android:name="com.predatorx.allinone.user.Navbar"
             android:exported="false" />
         <activity
-            android:name=".user.Login"
+            android:name="com.predatorx.allinone.user.SignUp"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.predatorx.allinone.user.Login"
+            android:exported="false" />
+        <activity
+            android:name="com.predatorx.allinone.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

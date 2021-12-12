@@ -1,8 +1,8 @@
-package com.predatorx.expensemanager.user;
+package com.predatorx.allinone.user;
 
 import androidx.fragment.app.Fragment;
 
-import com.predatorx.expensemanager.R;
+import com.predatorx.allinone.R;
 
 public class RetailerDashboardFragment extends Fragment {
     public RetailerDashboardFragment() {

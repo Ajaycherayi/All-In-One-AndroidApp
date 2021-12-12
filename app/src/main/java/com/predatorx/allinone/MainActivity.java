@@ -1,4 +1,4 @@
-package com.predatorx.expensemanager;
+package com.predatorx.allinone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.predatorx.expensemanager.user.Navbar;
+import com.predatorx.allinone.user.SignUp;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                startActivity( new Intent(MainActivity.this, Navbar.class));
+                startActivity( new Intent(MainActivity.this, SignUp.class));
                 //Initialize SessionManager
                 //managerCustomer = new SessionManagerUser(getApplicationContext());
                 //managerShop = new SessionManagerShop(getApplicationContext());

@@ -1,4 +1,4 @@
-package com.predatorx.expensemanager;
+package com.predatorx.allinone;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.predatorx.expensemanager.user;
+package com.predatorx.allinone.user;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
-import com.predatorx.expensemanager.About;
-import com.predatorx.expensemanager.R;
+import com.predatorx.allinone.About;
+import com.predatorx.allinone.R;
 
 public class Navbar extends AppCompatActivity {
 

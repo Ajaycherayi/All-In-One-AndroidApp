@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/Primary"
+    android:background="@drawable/bg_activity"
     tools:context=".user.SignUp">
 
     <LinearLayout
@@ -14,44 +14,47 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/img_user"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="30dp"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:contentDescription="@null" />
+            android:src="@drawable/img_add_user"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="SignUpWith"
-            android:textSize="15sp"
-            android:textColor="@color/white"
-            android:layout_gravity="center"
-            />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/app_name"
-            android:textAllCaps="true"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:textColor="@color/white"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/bg_bottom"
             android:layout_marginTop="20dp"
-            android:paddingTop="80dp"
+            android:paddingVertical="50dp"
             android:orientation="vertical"
             android:paddingHorizontal="10dp"
-            android:layout_marginHorizontal="8dp">
+            android:layout_marginHorizontal="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SignUp With"
+                android:textStyle="bold"
+                android:fontFamily="@font/inconsolata_condensed_regular"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/app_name"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:fontFamily="@font/barlow_condensed_regular"
+                android:textSize="35sp"
+                android:textColor="@color/Primary"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/et_userName"
@@ -141,17 +144,16 @@
                 android:id="@+id/btn_getOtp"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginHorizontal="10dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/astronaut"
                 android:gravity="center"
-                android:backgroundTint="@color/Primary"
+                android:backgroundTint="@color/Primary_light"
                 app:cornerRadius="5dp"
                 android:text="getOtp"
                 android:textColor="@color/white"
                 app:strokeWidth="1dp"
-                app:strokeColor="@color/black"
+                app:strokeColor="@color/Primary"
                 android:textSize="25sp"/>
 
             <com.google.android.material.button.MaterialButton
@@ -160,11 +162,10 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="5dp"
-                android:layout_marginHorizontal="10dp"
                 android:fontFamily="@font/astronaut"
                 android:gravity="center"
                 android:backgroundTint="@color/white"
-                app:strokeColor="@color/Primary"
+                app:strokeColor="@color/Primary_light"
                 app:strokeWidth="1dp"
                 app:cornerRadius="5dp"
                 android:text="login"
