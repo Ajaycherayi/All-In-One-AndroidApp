@@ -1,45 +1,70 @@
 package com.predatorx.allinone;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.predatorx.allinone.database.SessionManager;
+import com.predatorx.allinone.user.Navbar;
 import com.predatorx.allinone.user.SignUp;
 
 public class MainActivity extends AppCompatActivity {
 
     private static int SPLASH_TIMER = 1000;
 
-
+    SessionManager manager;
+    String phoneNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+        manager = new SessionManager(getApplicationContext());
 
-                startActivity( new Intent(MainActivity.this, SignUp.class));
-                //Initialize SessionManager
-                //managerCustomer = new SessionManagerUser(getApplicationContext());
-                //managerShop = new SessionManagerShop(getApplicationContext());
+        phoneNumber = manager.getPhone();
 
-//                if (managerShop.getShopLogin()){
-//                    startActivity(new Intent(getApplicationContext(), ShopDashBoard.class));
-//                }else if (managerCustomer.getCustomerLogin()){
-//                    startActivity(new Intent(getApplicationContext(), UserDashBoard.class));
-//                }else {
-//                    Intent intent = new Intent(MainActivity.this, UserSignUp.class);
-//                    startActivity(intent);
-//                }
-                finish();
+        FirebaseDatabase.getInstance().getReference("Users").orderByChild("phoneNumber").equalTo(phoneNumber)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-            }
-        },SPLASH_TIMER);
+                        if (snapshot.exists()) { //Check User
+                            new Handler().postDelayed(new Runnable() {
+                            @Override
+                                public void run() {
+
+                                    if (manager.getUserLogin()){
+                                        startActivity(new Intent(getApplicationContext(), Navbar.class));
+                                    }else {
+                                        startActivity(new Intent(MainActivity.this, SignUp.class));
+                                    }
+                                    finish();
+
+                                }
+                        },SPLASH_TIMER);
+                        }else{
+                            startActivity(new Intent(MainActivity.this, SignUp.class));
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
 
 
 

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -41,6 +42,8 @@ public class Otp_Verification extends AppCompatActivity {
 
     private TextView btn_resend,tv_counter,tv_resend;
     private EditText et_otp;
+
+    ProgressDialog progressDialog;
 
     private String name,password,phoneNumber,getOtp;
     private FirebaseAuth firebaseAuth;
@@ -92,16 +95,14 @@ public class Otp_Verification extends AppCompatActivity {
                     return;
                 }
 
+                progressDialog = new ProgressDialog(Otp_Verification.this);
+                progressDialog.show();
+                progressDialog.setContentView(R.layout.progress);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                progressDialog.setCancelable(false);
+
                 String enteredOtp = et_otp.getText().toString();
 
-                /*                if(getOtp != null){
-                    PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.getCredential(getOtp,enteredOtp);
-                    FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()){
-                                nodeId = String.valueOf(node+1000);
-            */
 
                 if (getOtp != null) {
                     PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.getCredential(getOtp, enteredOtp);
@@ -111,17 +112,20 @@ public class Otp_Verification extends AppCompatActivity {
                             storeNewUserData();
 
                         } else {
+                            progressDialog.dismiss();
                             Toast.makeText(Otp_Verification.this, "Error occur", Toast.LENGTH_SHORT).show();
                         }
 
                     });
                 } else {
+                    progressDialog.dismiss();
                     Toast.makeText(Otp_Verification.this, "Enter The Correct OTP", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
         btn_resend.setOnClickListener(v -> {
+
 
             PhoneAuthOptions options = PhoneAuthOptions.newBuilder(firebaseAuth)
                     .setPhoneNumber(phoneNumber)
@@ -222,7 +226,7 @@ public class Otp_Verification extends AppCompatActivity {
                 String _phoneNo = snapshot.child(phoneNumber).child("Profile").child("phoneNumber").getValue(String.class);
                 String _password = snapshot.child(phoneNumber).child("Profile").child("password").getValue(String.class);
 
-                manager.setCustomerLogin(true);
+                manager.setUserLogin(true);
                 manager.setDetails(_name, _phoneNo, _password);
 
                 startActivity(new Intent(getApplicationContext(), Navbar.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));

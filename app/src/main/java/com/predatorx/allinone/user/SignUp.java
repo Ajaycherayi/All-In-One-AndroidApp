@@ -3,10 +3,13 @@ package com.predatorx.allinone.user;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -34,6 +37,9 @@ public class SignUp extends AppCompatActivity {
     private FirebaseAuth auth;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallBacks;
 
+    ProgressDialog progressDialog;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +51,7 @@ public class SignUp extends AppCompatActivity {
 
         btn_getOtp = findViewById(R.id.btn_getOtp);
         btn_login = findViewById(R.id.btn_backToLogin);
+
 
         auth = FirebaseAuth.getInstance();
 
@@ -66,6 +73,14 @@ public class SignUp extends AppCompatActivity {
                     return;
                 }
 
+                hideKeyboard(SignUp.this);
+
+                progressDialog = new ProgressDialog(SignUp.this);
+                progressDialog.show();
+                progressDialog.setContentView(R.layout.progress);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                progressDialog.setCancelable(false);
+
                 String phone = et_phoneNumber.getEditText().getText().toString().trim();
                 String phoneNumber = "+91" + phone;
 
@@ -79,6 +94,7 @@ public class SignUp extends AppCompatActivity {
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                                 if (snapshot.exists()) {
+                                    progressDialog.dismiss();
                                     Toast.makeText(SignUp.this, "This User already Exist  Please Login", Toast.LENGTH_LONG).show();
 
                                 } else {
@@ -102,9 +118,11 @@ public class SignUp extends AppCompatActivity {
                         });
 
                     } else {
+                        progressDialog.dismiss();
                         Toast.makeText(SignUp.this, "Please Enter Correct Mobile Number", Toast.LENGTH_SHORT).show();
                     }
                 } else {
+                    progressDialog.dismiss();
                     Toast.makeText(SignUp.this, "Please Enter Mobile Number", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -210,6 +228,14 @@ public class SignUp extends AppCompatActivity {
             return true;
         }
 
+    }
+
+    public static void hideKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        if(inputMethodManager.isAcceptingText()){
+            inputMethodManager.hideSoftInputFromWindow(
+                    activity.getCurrentFocus().getWindowToken(),0);
+        }
     }
 
 

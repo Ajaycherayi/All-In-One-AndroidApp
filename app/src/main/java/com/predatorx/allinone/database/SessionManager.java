@@ -16,12 +16,12 @@ public class SessionManager {
 
 
     // Set Login
-    public void setCustomerLogin(boolean login){
+    public void setUserLogin(boolean login){
         editor.putBoolean("KEY_LOGIN",login);
         editor.commit();
     }
 
-    public boolean getCustomerLogin(){
+    public boolean getUserLogin(){
 
         return sharedPreferences.getBoolean("KEY_LOGIN",false);
     }
